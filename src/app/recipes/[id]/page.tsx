@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ExtendedRecipe } from "./types";
+import { ExtendedRecipe } from "../../../types/recipe";
 
 async function getRecipe(id: string) {
   const res = await fetch(
@@ -21,8 +21,8 @@ export default async function Recipe({
   const recipe = await getRecipe(id);
 
   return (
-    <div className="flex justify-center bg-slate-50 h-screen">
-      <div className="px-4 py-5 space-y-3 w-full sm:w-3/4 md:w-1/2 ">
+    <div className="flex justify-center h-screen">
+      <div className="px-4 py-5 space-y-3 w-full sm:w-3/4 md:w-1/2 bg-slate-50 shadow-lg">
         <h1 className="font-bold">{recipe.title}</h1>
         <img className="mr-5" src={recipe.image} alt={recipe.title} />
         <div

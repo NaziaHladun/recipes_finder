@@ -1,3 +1,9 @@
+export interface Recipe {
+  id: number;
+  title: string;
+  image: string;
+  imageType: string;
+}
 export interface ExtendedRecipe {
   id: number;
   image: string;

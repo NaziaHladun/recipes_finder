@@ -1,7 +1,8 @@
 "use client";
-import { cuisines } from "components/cuisines";
+
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { cuisines } from "src/cuisines";
 
 export default function Home() {
   const router = useRouter();
