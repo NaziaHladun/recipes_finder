@@ -15,8 +15,16 @@ export default function Home() {
   }, [query, cuisine, maxTime]);
 
   const onNextHandler = () => {
-    console.log("AZAZ NEXT");
-    router.push("/recipes");
+    const params = new URLSearchParams();
+
+    if (query) params.append("query", query);
+    if (cuisine) params.append("cuisine", cuisine);
+    if (maxTime > 0) params.append("maxReadyTime", String(maxTime));
+
+    const queryString = params.toString();
+    const url = queryString ? `/recipes?${queryString}` : "/recipes";
+
+    router.push(url);
   };
 
   return (
