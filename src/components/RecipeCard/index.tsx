@@ -12,6 +12,7 @@ export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
           <img
             src={recipe.image}
             className="rounded-t h-72 w-full object-cover"
+            alt={recipe.title}
           />
           <figcaption className="p-4">
             <p className="text-lg mb-4 font-bold leading-relaxed text-gray-800 ">

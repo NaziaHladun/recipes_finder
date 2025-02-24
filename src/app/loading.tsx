@@ -1,5 +1,5 @@
-import { Loader } from "src/components/Loader";
+import { Loader } from "components/Loader";
 
-export const Loading = () => {
+export default function Loading() {
   return <Loader />;
-};
+}
