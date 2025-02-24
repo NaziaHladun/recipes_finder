@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
-import { cuisines } from "src/cuisines";
+import { useRouter } from 'next/navigation';
+import { useMemo, useState } from 'react';
+import { cuisines } from 'src/cuisines';
 
 export default function Home() {
   const router = useRouter();
 
-  const [query, setQuery] = useState<string>("");
-  const [cuisine, setCuisine] = useState<string>("");
+  const [query, setQuery] = useState<string>('');
+  const [cuisine, setCuisine] = useState<string>('');
   const [maxTime, setMaxTime] = useState<number>(0);
 
   const isValid = useMemo(() => {
@@ -18,12 +18,12 @@ export default function Home() {
   const onNextHandler = () => {
     const params = new URLSearchParams();
 
-    if (query) params.append("query", query);
-    if (cuisine) params.append("cuisine", cuisine);
-    if (maxTime > 0) params.append("maxReadyTime", String(maxTime));
+    if (query) params.append('query', query);
+    if (cuisine) params.append('cuisine', cuisine);
+    if (maxTime > 0) params.append('maxReadyTime', String(maxTime));
 
     const queryString = params.toString();
-    const url = queryString ? `/recipes?${queryString}` : "/recipes";
+    const url = queryString ? `/recipes?${queryString}` : '/recipes';
 
     router.push(url);
   };

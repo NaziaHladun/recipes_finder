@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
-import { ExtendedRecipe } from "../../../types/recipe";
+import { notFound } from 'next/navigation';
+import { ExtendedRecipe } from 'types/recipe';
 
 async function getRecipe(id: string) {
   const res = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.API_KEY}`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.API_KEY}`,
   );
   const data: ExtendedRecipe = await res.json();
   if (!data) notFound();
@@ -11,11 +11,7 @@ async function getRecipe(id: string) {
   return data;
 }
 
-export default async function Recipe({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function Recipe({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   const recipe = await getRecipe(id);
@@ -25,9 +21,7 @@ export default async function Recipe({
       <div className="px-4 py-5 space-y-3 w-full sm:w-3/4 md:w-1/2 bg-slate-50 shadow-lg">
         <h1 className="font-bold">{recipe.title}</h1>
         <img className="mr-5" src={recipe.image} alt={recipe.title} />
-        <div
-          dangerouslySetInnerHTML={{ __html: `<p>${recipe.summary}</p>` }}
-        ></div>
+        <div dangerouslySetInnerHTML={{ __html: `<p>${recipe.summary}</p>` }}></div>
 
         <div>
           <h1 className="font-bold">Ingredients :</h1>

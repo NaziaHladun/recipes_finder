@@ -1,6 +1,6 @@
-import { Suspense } from "react";
-import { RecipeList } from "./_components/RecipeList";
-import { Loader } from "components/Loader";
+import { Suspense } from 'react';
+import { RecipeList } from './_components/RecipeList';
+import { Loader } from 'components/Loader';
 
 export default async function Recipes({
   searchParams,

@@ -1,5 +1,5 @@
-import { Recipe } from "../../types/recipe";
-import Link from "next/link";
+import { Recipe } from 'types/recipe';
+import Link from 'next/link';
 
 export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
